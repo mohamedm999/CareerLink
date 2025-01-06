@@ -60,7 +60,7 @@ class Utilisateur {
             header('Location: ../Views/admin/dashboard.php');
             exit;
         } else {
-      
+            
             $_SESSION['errors'] = ['message' => 'Identifiants invalides. Veuillez réessayer.'];
             header('Location: ../Views/auth/login.php');
             exit;
