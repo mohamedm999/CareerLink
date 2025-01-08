@@ -6,7 +6,7 @@ require_once __DIR__ . '../../../vendor/autoload.php';
 use App\Models\Utilisateur;
 
 class LoginController
-{
+{   
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -37,48 +37,63 @@ class LoginController
             if (!empty($errors)) {
                 $_SESSION['errors'] = $errors;
                 header('Location: ../Views/auth/login.php');
-                exit;
+                exit();
             }
 
     
             $utilisateur = new Utilisateur($nom, $email, $mot_de_passe);
-            $user = $utilisateur->findUserByEmail($email);
-        
+            $response = $utilisateur->se_connecter();
+            
 
-            if ($user) {
-                $utilisateur->se_connecter();
+
+            if ($response['success']) {
+                $user = $response['user'];
+                $_SESSION['user']=$user ;
+                if ($user['user_role'] == 'admin') {
+               
+                    header('Location: ../Views/admin/home/dashboard.php');
+                    exit();
+
+                } elseif ($user['user_role'] == 'recruiter') {
+               
+                    header('Location: ../Views/recruiter/index.php');
+                    exit();
+
+                }elseif ($user['user_role'] == 'candidate') {
+               
+                    header('Location: ../Views/Candidate/index.php');
+                    exit();
+
+                }else {
+
+                    $_SESSION['errors'] = ['message' => 'Rôle utilisateur inconnu.'];
+                    header('Location: ../Views/auth/login.php');
+                    exit();
+
+                }
+    
+                exit();
+
             } else {
-                $_SESSION['errors'] = ['message' => 'User not found.'];
+                $_SESSION['errors'] = ['message' => $response['message']];
                 header('Location: ../Views/auth/login.php');
-                exit;
+                exit();
             }
             
 
     
             unset($_SESSION['errors']);
-
-            // $_SESSION['user'] = $user; 
-            // if ($user['user_role'] === 'Admin') {
-
-            // }
-           
+            unset($_SESSION['input']); 
             
         }
 
 
         header('Location: ../Views/auth/login.php');
-        exit;
+        exit();
     }
 
-    public function logout()
-    
-    {
-        session_destroy();
-        header('Location: ../Views/auth/login.php');
-        exit;
-    }
+
 }
 
 $controller = new LoginController();
 $controller->login();
-$controller->logout();

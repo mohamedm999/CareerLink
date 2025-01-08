@@ -7,14 +7,15 @@ class Tag {
     public $nom;
 
     public function creer() {
-            // Implementation
+            
+
     }
 
     public function modifier() {
-            // Implementation
+            
     }
 
     public function supprimer() {
-            // Implementation
+            
     }
 }

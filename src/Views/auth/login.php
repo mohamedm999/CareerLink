@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Get any stored input values and errors
+
 $input = $_SESSION['input'] ?? [];
 $errors = $_SESSION['errors'] ?? [];
 
@@ -21,7 +21,7 @@ $errors = $_SESSION['errors'] ?? [];
     <nav class="fixed w-full z-50 backdrop-blur-lg bg-white/80 border-b border-slate-200">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-20">
-                <a href="#" class="flex items-center space-x-3">
+                <a href="../../../src/Views/home/index.php" class="flex items-center space-x-3">
                     <div class="w-12 h-12 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-2xl flex items-center justify-center transform rotate-3">
                         <i class="fas fa-briefcase text-2xl text-white"></i>
                     </div>
@@ -29,7 +29,7 @@ $errors = $_SESSION['errors'] ?? [];
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <div class="relative group">
-                        <a href="#" class="text-slate-600 hover:text-violet-600 transition-colors duration-200">Accueil</a>
+                        <a href="../../../src/Views/home/index.php" class="text-slate-600 hover:text-violet-600 transition-colors duration-200">Accueil</a>
                         <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-200"></div>
                     </div>
                     <div class="relative group">
@@ -40,7 +40,7 @@ $errors = $_SESSION['errors'] ?? [];
                         <a href="#" class="text-slate-600 hover:text-violet-600 transition-colors duration-200">Contact</a>
                         <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-200"></div>
                     </div>
-                    <a href="#" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-6 py-3 rounded-xl hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-violet-200">
+                    <a  href="../../../src/Views/auth/register.php" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-6 py-3 rounded-xl hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-violet-200">
                         S'inscrire
                     </a>
                 </div>
@@ -201,7 +201,7 @@ $errors = $_SESSION['errors'] ?? [];
                         <!-- Sign Up Link -->
                         <p class="text-center mt-6 text-slate-300">
                             Pas encore de compte? 
-                            <a href="#" class="text-violet-400 hover:text-violet-300 font-semibold">Créer un compte</a>
+                            <a  href="../../../src/Views/auth/register.php"  class="text-violet-400 hover:text-violet-300 font-semibold">Créer un compte</a>
                         </p>
                     </div>
                 </div>
@@ -215,7 +215,7 @@ $errors = $_SESSION['errors'] ?? [];
                         <div>
                             <h3 class="font-semibold text-white mb-1">Besoin d'aide?</h3>
                             <p class="text-slate-300 text-sm mb-2">Notre équipe est là pour vous aider</p>
-                            <a href="#" class="text-violet-400 hover:text-violet-300 text-sm font-medium group">
+                            <a href="../../../src/Views/auth/register.php" class="text-violet-400 hover:text-violet-300 text-sm font-medium group">
                                 Contacter le support
                                 <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform duration-200"></i>
                             </a>

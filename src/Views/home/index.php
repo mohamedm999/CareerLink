@@ -86,7 +86,7 @@
                         <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-200"></div>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="./auth/register.php" class="text-violet-600 hover:text-violet-700 font-medium hover-text-glow">S'inscrire</a>
+                        <a href="../auth/register.php" class="text-violet-600 hover:text-violet-700 font-medium hover-text-glow">S'inscrire</a>
                         <a href="../auth/login.php" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-6 py-3 rounded-xl hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-violet-200 hover-glow">
                             Connexion
                         </a>
